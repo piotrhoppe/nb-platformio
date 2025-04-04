@@ -1,4 +1,4 @@
-package nbpio.serialmonitor;
+package org.netbeans.module.serialmonitor;
 
 import java.awt.Font;
 import java.awt.event.ActionEvent;

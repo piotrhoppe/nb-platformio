@@ -1,4 +1,4 @@
-package nbpio.serialmonitor;
+package org.netbeans.module.serialmonitor;
 
 import java.util.ArrayList;
 import java.util.Arrays;

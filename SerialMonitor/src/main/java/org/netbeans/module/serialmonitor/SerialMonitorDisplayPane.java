@@ -1,4 +1,4 @@
-package nbpio.serialmonitor;
+package org.netbeans.module.serialmonitor;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -47,11 +47,11 @@ public class SerialMonitorDisplayPane extends JPanel {
     private static final Charset MESSAGE_CHARSET = Charset.forName("US-ASCII");
     
     @StaticResource
-    private static final String CONFIG_ICON = "nbpio/serialmonitor/config.png";
+    private static final String CONFIG_ICON = "org/netbeans/module/serialmonitor/config.png";
     @StaticResource
-    private static final String RECONNECT_ICON = "nbpio/serialmonitor/reconnect.png";
+    private static final String RECONNECT_ICON = "org/netbeans/module/serialmonitor/reconnect.png";
     @StaticResource
-    private static final String CLEAR_ICON = "nbpio/serialmonitor/clear.png";
+    private static final String CLEAR_ICON = "org/netbeans/module/serialmonitor/clear.png";
     
     private SerialPortCommunicator communicator;
     private ActionListener configureActionHandler;

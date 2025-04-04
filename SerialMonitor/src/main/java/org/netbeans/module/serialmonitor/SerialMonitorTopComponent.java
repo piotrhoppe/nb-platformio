@@ -1,4 +1,4 @@
-package nbpio.serialmonitor;
+package org.netbeans.module.serialmonitor;
 
 import java.awt.BorderLayout;
 import java.util.Properties;
@@ -16,7 +16,7 @@ import org.openide.util.NbBundle.Messages;
 )
 @TopComponent.Description(
     preferredID = "SerialMonitorTopComponent",
-    iconBase="nbpio/serialmonitor/serialPort.png", 
+    iconBase="org/netbeans/module/serialmonitor/serialPort.png", 
     persistenceType = TopComponent.PERSISTENCE_NEVER
 )
 @TopComponent.Registration(mode = "output", openAtStartup = false)
