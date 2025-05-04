@@ -1,4 +1,4 @@
-package nbpio.project;
+package org.netbeans.module.platformio.project;
 
 import static javax.swing.Action.NAME;
 
@@ -26,7 +26,7 @@ import org.openide.util.NbBundle;
     id = "nbpio.project.OpenLibraryManagerAction"
 )
 @ActionRegistration(
-    iconBase = "nbpio/project/nbpio.png",
+    iconBase = "org/netbeans/module/platformio/project/nbpio.png",
     displayName = "#OpenLibraryManagerAction.name"
 )
 @ActionReference(path="Projects/Actions")

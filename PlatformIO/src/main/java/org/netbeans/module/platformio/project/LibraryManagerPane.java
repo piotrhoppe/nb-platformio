@@ -1,4 +1,4 @@
-package nbpio.project;
+package org.netbeans.module.platformio.project;
 
 import java.awt.BorderLayout;
 import java.awt.CardLayout;

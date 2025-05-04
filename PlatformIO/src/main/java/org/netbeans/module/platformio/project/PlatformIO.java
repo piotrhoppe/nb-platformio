@@ -1,4 +1,4 @@
-package nbpio.project;
+package org.netbeans.module.platformio.project;
 
 import java.io.BufferedReader;
 import java.io.File;
