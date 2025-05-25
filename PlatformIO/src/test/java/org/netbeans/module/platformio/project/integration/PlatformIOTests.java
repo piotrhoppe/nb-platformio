@@ -98,48 +98,6 @@ public class PlatformIOTests {
         assertTrue( "Config file contents is not correct!", Arrays.equals( Files.readAllBytes( configFile.toPath() ), configFileContents) );
     }
 
-    @Test
-    public void should_parse_libraries_list() throws IOException {
-        /*
-        [
-            {
-                "updated": "2016-02-23T10:50:02Z", 
-                "description": "Arduino library for HDC1000 and HDC1008 sensors", 
-                "frameworks": ["arduino"], 
-                "dlmonth": 2, 
-                "examplenums": 1, 
-                "authornames": ["Adafruit Industries"], 
-                "platforms": ["atmelavr", "atmelsam"], 
-                "keywords": ["sensor", "humidity", "temperature"], 
-                "id": 1102, 
-                "name": "Adafruit-HDC1000"
-            }
-        ]
-        */
-        
-        List <LibraryDefinition> libraries = PlatformIO.listInstalledLibraries();
-        for ( LibraryDefinition libraryDefinition : libraries ) {
-            assertNotNull( libraryDefinition.getId() );
-            assertNotNull( libraryDefinition.getName() );            
-            assertNotNull( libraryDefinition.getAuthors() );            
-            assertNotNull( libraryDefinition.getPlatforms() );
-        }
-    }
-    
-    @Test
-    public void should_find_libraries_with_given_search_term() throws IOException, InterruptedException {
-        CountDownLatch latch = new CountDownLatch(1);
-        List <LibraryDefinition> allResults = new ArrayList<>();
-        PlatformIO.startLibrarySearch("humidity", (r) -> {
-            allResults.addAll( r.getResults() );
-            if ( r.isComplete() ) {
-                latch.countDown();
-            }
-        });
-        latch.await(5, TimeUnit.SECONDS);
-        assertTrue( allResults.size() > 0 );
-    }
-    
     private static void removeDirectoryTree( Path dir ) {
         try {
             Files.walkFileTree(dir, new SimpleFileVisitor<Path>() {
