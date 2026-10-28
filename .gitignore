@@ -1,0 +1,13 @@
+# NetBeans specific #
+nbproject/private/
+build/
+nbbuild/
+dist/
+nbdist/
+nb-configuration.xml
+
+# Maven #
+.classpath
+.project
+.settings/
+target/
