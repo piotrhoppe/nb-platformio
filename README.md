@@ -1,32 +1,43 @@
 NetBeans Plugin for PlatformIO
 ==============================
-__(NOTE: This project is no longer being developed)__
 
-NBPIO is a plugin suite for Netbeans 8.1 that provides easy integration of PlatformIO within the IDE. It consists of three plugins:
+> [!NOTE]
+> This plugin is based on [nbpio](https://github.com/gholdys/nbpio), which is no longer maintained by its original author.
 
-+ PlatformIO Project
-+ SerialMonitor
-+ PureJavaComm
+NB PlatformIO is a suite of plugins for [NetBeans](https://netbeans.apache.org) that provides integration with [PlatformIO](https://platformio.org). It consists of two main plugins:
+
+- **PlatformIO Project** — provides a project wizard for PlatformIO projects.
+- **SerialMonitor** — provides a serial monitor within the IDE.
  
-The first provides a special project wizard for PlatformIO projects, the second provides a Serial Monitor while the third is just a wrapper around a PureJavaComm library (an RXTX replacement)
+## Support the project
 
-Quickstart
-----------
-First of all, you need to have [PlatformIO CLI](http://platformio.org/get-started/cli) installed on your system. For a complete guide on how to do that click [here](http://docs.platformio.org/en/latest/installation.html). 
+If you find this project useful, please consider supporting it.
 
-Once you have PlatformIO installed it is time to get going with NBPIO plugin. To take advantage of this plugin set, install PlatformIO Project and SerialMonitor (PureJavaComm will be installed automatially as a dependency) and then:
+Your support helps cover the time and effort involved in keeping the project available and maintaining its repository.
 
-1. In the main menu go to "File" ⇨ "New Project".
-2. Select "PlatformIO" in the "Categories" section.
+Every contribution is greatly appreciated. Thank you for supporting open-source software!
+
+[![Sponsor](https://img.shields.io/badge/Sponsor-support%20the%20project-ea4aaa?logo=github)](https://github.com/sponsors/piotrhoppe)
+
+## Quickstart
+
+First, make sure that [PlatformIO CLI](https://docs.platformio.org/en/latest/core/quickstart.html) is installed on your system. For installation instructions, see the official [documentation](https://docs.platformio.org/).
+
+Once PlatformIO is installed, you can start using the NB PlatformIO plugin suite.
+Install the **PlatformIO Project** and **SerialMonitor** plugins.
+
+Then follow these steps:
+
+1. In the main menu select **File → New Project**.
+2. Select **PlatformIO** in the **Categories** section.
 3. Fill in the project form.
 4. The project will be created by PlatformIO according to the specified parameters and imported into NetBeans.
-5. The empty project contains a single source file called "main.cpp" which should be automatically opened after creating the project.
-6. To build the project use the standard Build Project command or press F11.
-7. The upload command from PlatformIO has been mapped to the IDE's "Run" command, so to upload the project select "run" ⇨ "Run Project" or press F6.
+5. The generated project contains a source file named `main.cpp`, which should open automatically after the project is created.
+6. To build the project use the standard **Build Project** command or press **F11**.
+7. To upload the project (firmware), select **Run → Run Project** or press **F6**. PlatformIO's upload command is mapped to the IDE's **Run** command.
 
-The SerialMonitor component can be opened by navigating to "Window" ⇨ "IDE Tools" and selecting "Serial Monitor" (somewhere at the end of the list).
+To open the Serial Monitor, navigate to **Window → IDE Tools → Serial Monitor**.
 
-Take a look at [nbpio-demo.mp4](https://raw.githubusercontent.com/gholdys/nbpio/master/nbpio-demo.mp4) file for a short demonstration.
+See the [NB PlatformIO DEMO](https://raw.githubusercontent.com/gholdys/nbpio/master/nbpio-demo.mp4) for a short demonstration.
 
-_Currently, the plugins have been tested only on Linux_
-
+**Platform compatibility:** The plugins have been tested only on Linux.
