@@ -2,6 +2,11 @@ name: Build
 
 on:
   workflow_call:
+    inputs:
+      release_version:
+        description: Version to use when packaging release artifacts
+        required: false
+        type: string
 
 jobs:
   build:
@@ -27,3 +32,24 @@ jobs:
         run: platformio --version
       - name: Build and test with Maven
         run: mvn -B --file pom.xml verify
+
+      - name: Package NBM files
+        if: inputs.release_version != ''
+        env:
+          RELEASE_VERSION: ${{ inputs.release_version }}
+        run: |
+          mapfile -t nbm_files < <(find PlatformIO/target/nbm SerialMonitor/target/nbm -maxdepth 1 -type f -name '*.nbm' | sort)
+          if ((${#nbm_files[@]} == 0)); then
+            echo "No NBM files were generated." >&2
+            exit 1
+          fi
+
+          zip -j "nb-platformio-${RELEASE_VERSION}.zip" "${nbm_files[@]}"
+
+      - name: Upload release archive
+        if: inputs.release_version != ''
+        uses: actions/upload-artifact@v4
+        with:
+          name: nb-platformio-release
+          path: nb-platformio-${{ inputs.release_version }}.zip
+          if-no-files-found: error
