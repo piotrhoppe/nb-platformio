@@ -3,11 +3,11 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <artifactId>netbeans-platformio</artifactId>
-        <groupId>org.netbeans.module</groupId>
+        <groupId>io.github.piotrhoppe.platformio</groupId>
         <version>1.0-SNAPSHOT</version>
     </parent>
-    <groupId>org.netbeans.module</groupId>
-    <artifactId>platformio</artifactId>
+    <groupId>io.github.piotrhoppe.platformio</groupId>
+    <artifactId>project</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>nbm</packaging>
     <name>PlatformIO Project</name>
