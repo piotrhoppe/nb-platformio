@@ -1,0 +1,56 @@
+name: Publish Maven Central
+
+on:
+  workflow_call:
+    inputs:
+      release_version:
+        description: Version being published (e.g. 1.2.3)
+        required: true
+        type: string
+    secrets:
+      CENTRAL_USERNAME:
+        description: Sonatype Central Portal username token
+        required: true
+      CENTRAL_PASSWORD:
+        description: Sonatype Central Portal password token
+        required: true
+      GPG_PRIVATE_KEY:
+        description: Armored GPG signing key
+        required: true
+      GPG_PASSPHRASE:
+        description: Passphrase of the GPG signing key
+        required: true
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    environment: CI
+    permissions:
+      contents: read
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up JDK
+        uses: actions/setup-java@v4
+        with:
+          java-version: "17"
+          distribution: temurin
+          cache: maven
+          server-id: central
+          server-username: CENTRAL_USERNAME
+          server-password: CENTRAL_PASSWORD
+          gpg-private-key: ${{ secrets.GPG_PRIVATE_KEY }}
+          gpg-passphrase: GPG_PASSPHRASE
+        env:
+          GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
+    
+      - name: Set release version
+        run: mvn -B versions:set -DnewVersion="${{ inputs.release_version }}" -DprocessAllModules
+
+      - name: Publish to Maven Central
+        env:
+          CENTRAL_USERNAME: ${{ secrets.CENTRAL_USERNAME }}
+          CENTRAL_PASSWORD: ${{ secrets.CENTRAL_PASSWORD }}
+          GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
+        run: mvn -B --file pom.xml -P release -DskipTests deploy

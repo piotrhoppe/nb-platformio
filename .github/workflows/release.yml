@@ -56,3 +56,14 @@ jobs:
               --title "$RELEASE_TAG" \
               --generate-notes
           fi
+
+  publish-maven-central:
+    needs:
+      - prepare
+      - build
+    permissions:
+      contents: read
+    secrets: inherit
+    uses: ./.github/workflows/publish-maven-central.yml
+    with:
+      release_version: ${{ needs.prepare.outputs.version }}
