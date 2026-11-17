@@ -1,0 +1,3 @@
+Manifest-Version: 1.0
+OpenIDE-Module-Display-Category: Tools
+OpenIDE-Module-Layer: org/netbeans/module/platformio/updates/layer.xml

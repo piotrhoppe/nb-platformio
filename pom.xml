@@ -59,6 +59,8 @@
     <modules>
         <module>PlatformIO</module>
         <module>SerialMonitor</module>
+        <module>nb-platformio-router</module>
+        <module>nb-platformio-kit</module>
     </modules>
 
     <dependencyManagement>
@@ -81,7 +83,6 @@
                     <version>4.3</version>
                     <configuration>
                         <cluster>netbeans_platformio</cluster>
-                        <!--<useOSGiDependencies>false</useOSGiDependencies>-->
                     </configuration>
                 </plugin>
                 <plugin>
