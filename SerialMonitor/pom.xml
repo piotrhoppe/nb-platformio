@@ -10,7 +10,7 @@
     <artifactId>serialmonitor</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>nbm</packaging>
-    <name>Serial Monitor</name>
+    <name>PlatformIO Serial Monitor</name>
     <build>
         <plugins>
             <plugin>
