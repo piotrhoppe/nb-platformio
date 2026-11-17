@@ -67,3 +67,31 @@ jobs:
     uses: ./.github/workflows/publish-maven-central.yml
     with:
       release_version: ${{ needs.prepare.outputs.version }}
+
+  update-site:
+    needs:
+      - prepare
+      - build
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Download update site artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: nb-platformio-update-site
+          path: site
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+      - name: Upload update site
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
